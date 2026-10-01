@@ -16,3 +16,18 @@ _site/
 # counterproductive to check this file into the repository.
 # Details at https://github.com/github/pages-gem/issues/768
 Gemfile.lock
+# Dependencies and generated builds
+node_modules/
+dist/
+
+# Local environment and secrets
+.env
+.env.*
+!.env.example
+
+# Logs and macOS metadata
+*.log
+.DS_Store
+
+# Resume withheld from the public site
+/public/resume.pdf
