@@ -28,26 +28,26 @@ function Terminal() {
     setInput('')
   }
   return <div className="terminal">
-    <div className="terminal-bar"><span className="terminal-dots" aria-hidden="true"><i /><i /><i /></span><span>kelley@systems-lab: ~</span><span className="terminal-label">interactive</span></div>
+    <div className="terminal-bar"><span className="terminal-dots" aria-hidden="true"><i /><i /><i /></span><span>kelley@little-garden: ~</span><span className="terminal-label">interactive</span></div>
     <div className="terminal-body">
-      <p className="terminal-welcome">A tiny systems playground.<br />Try a scheduler, explore memory, or watch a race condition.</p>
+      <p className="terminal-welcome">A little garden in a terminal.<br />Plant something, catch a firefly, or make a wish.</p>
       <div className="terminal-history" role="log" aria-label="Terminal output" aria-live="polite">{history.map((entry, index) => <div className="terminal-entry" key={index}><p><span className="prompt">~ $</span> {entry.command}</p><p className="terminal-output">{entry.output}</p></div>)}</div>
-      <form className="terminal-form" onSubmit={event => { event.preventDefault(); run(input) }}><label htmlFor="command" className="prompt"><span aria-hidden="true">~ $</span><span className="sr-only">Terminal command</span></label><input id="command" value={input} onChange={event => setInput(event.target.value)} autoComplete="off" autoCapitalize="none" spellCheck={false} placeholder="type a command…" /><button type="submit" aria-label="Run command">↵</button></form>
+      <form className="terminal-form" onSubmit={event => { event.preventDefault(); run(input) }}><label htmlFor="command" className="prompt"><span aria-hidden="true">~ $</span><span className="sr-only">Terminal command</span></label><input id="command" value={input} onChange={event => setInput(event.target.value)} autoComplete="off" autoCapitalize="none" spellCheck={false} placeholder="try planting something…" /><button type="submit" aria-label="Run command">↵</button></form>
       <div className="terminal-shortcuts" aria-label="Suggested commands">{commands.map(command => <button key={command} onClick={() => run(command)}>{command}</button>)}</div>
     </div>
   </div>
 }
 function App() {
   return <main className="page-shell">
-    <img className="corner-doodle" src="/assets/Buzz.png" alt="" aria-hidden="true" />
+    <img className="corner-doodle" src={`${import.meta.env.BASE_URL}assets/Buzz.png`} alt="" aria-hidden="true" />
     <section className="hero" aria-labelledby="intro-heading">
       <div><p className="eyebrow">CURIOUS ABOUT HOW THINGS WORK</p><h1 id="intro-heading">Hello, I’m <span className="accent">Kelley</span></h1><p className="subtitle">EECS @ UC Berkeley</p>
         <div className="bio"><p>I enjoy building software and understanding the systems underneath it—from a CPU’s instructions to the way an operating system manages memory and schedules work.</p><p>CS 162 sparked my interest in operating systems. Now I’m exploring concurrency, distributed systems, and learning about vertical operating systems.</p></div>
         <div className="social-links"><a href="https://github.com/kelleyliang" target="_blank" rel="noreferrer">GitHub ↗</a><a href="https://www.linkedin.com/in/kelley-liang/" target="_blank" rel="noreferrer">LinkedIn ↗</a><a href="mailto:kelley.s.liang@gmail.com">say hello ↗</a></div>
       </div>
-      <div className="hero-art-wrap"><div className="hero-circle" /><img className="hero-art" src="/assets/Buzz.png" alt="A playful hand-drawn robot" /><span className="art-caption">always figuring things out.</span></div>
+      <div className="hero-art-wrap"><div className="hero-circle" /><img className="hero-art" src={`${import.meta.env.BASE_URL}assets/Buzz.png`} alt="A playful hand-drawn robot" /><span className="art-caption">always figuring things out.</span></div>
     </section>
-    <section className="terminal-section" id="systems-lab" aria-label="Interactive systems playground">
+    <section className="terminal-section" id="little-garden" aria-label="Interactive terminal garden">
       <Terminal />
     </section>
     <section id="projects" aria-labelledby="projects-heading"><div className="section-heading"><h2 id="projects-heading">things I’ve <span className="accent">built</span></h2><p>From hardware to the kernel.</p></div><div className="project-list">{projects.map((project, index) => <article className="project" key={project.title}><span className="project-number">0{index + 1}</span><div><p className="project-category">{project.category}</p><h3>{project.title}</h3><p className="project-description">{project.description}</p><ul className="tags" aria-label="Technologies">{project.tags.map(tag => <li key={tag}>{tag}</li>)}</ul></div></article>)}</div></section>

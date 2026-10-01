@@ -19,6 +19,10 @@ npm run dev
 
 Project summaries come from Kelley’s resume. Add individual repository links when available.
 
-The terminal is a local systems playground: `schedule 2` simulates round-robin scheduling, `memory 8192` splits an address into a page and offset, and `race` / `race lock` compare shared-counter updates. `help` lists commands and `clear` resets output. Logic lives in `src/terminal.js`; no server or shell access is involved.
+The terminal is a whimsical little garden: `plant`, `fireflies`, `wish`, and `cloud` summon small text illustrations and playful messages. `help` lists commands and `clear` resets output. Logic lives in `src/terminal.js`; no server or shell access is involved.
 
 The terminal sits below the introduction and expands with output. History remains until `clear` or a page reload; command input has no character cap.
+
+## GitHub Pages
+
+The site deploys from `main` through `.github/workflows/deploy.yml` to https://kelleyliang.github.io/kelley-portfolio/. In repository Settings → Pages, select GitHub Actions as the source. The Vite base path and image paths support this repository URL.
